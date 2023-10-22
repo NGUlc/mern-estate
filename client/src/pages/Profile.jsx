@@ -6,6 +6,7 @@ import {updateUserStart, updateUserSuccess, updateUserFailure,
   deleteUserStart, deleteUserSuccess, deleteUserFailure,
   signOutUserStart, signOutUserSuccess, signOutUserFailure} from '../redux/user/userSlice.js';
 import { useDispatch } from 'react-redux';
+import {Link} from 'react-router-dom';
 
 export default function Profile() {
   const fileRef = useRef(null);
@@ -140,6 +141,9 @@ const handleSignOut = async () => {
           className='p-3 border rounded-lg' onChange={handleChange}/>
           <button disabled={loading} className='p-3 text-white uppercase rounded-lg bg-slate-700 hover: opacity-95'>
             {loading ? 'Loading...' : 'Update'}</button>
+            <Link className='p-3 text-center text-white uppercase bg-green-700 rounded-lg hover:opacity-95' to = {"/create-listing"}>
+              Create Listing
+            </Link>
       </form>
       <div className= 'flex justify-between mt-5'>
         <span onClick={handleDeleteUser} className='text-red-700 cursor-pointer '>Delete account</span> 
